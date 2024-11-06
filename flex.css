@@ -1,32 +1,63 @@
 /* Box-sizing border-box */
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
 
 /* Some default styles to make each box visible. This targets all items with a class that starts with "box" */
 [class^="box"] {
-  color:white;
+  color: white;
   font-size: 100px;
   text-align: center;
-  text-shadow:4px 4px 0 rgba(0,0,0,0.1);
-  padding:10px;
+  text-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
+  padding: 10px;
 }
 
 /* Colors for each box */
-.box1 { background:#1abc9c;}
-.box2 { background:#3498db;}
-.box3 { background:#9b59b6;}
-.box4 { background:#34495e;}
-.box5 { background:#f1c40f;}
-.box6 { background:#e67e22;}
-.box7 { background:#e74c3c;}
-.box8 { background:#bdc3c7;}
-.box9 { background:#2ecc71;}
-.box10 { background:#16a085;}
+.box1 {
+  background: #1abc9c;
+}
+
+.box2 {
+  background: #3498db;
+}
+
+.box3 {
+  background: #9b59b6;
+}
+
+.box4 {
+  background: #34495e;
+}
+
+.box5 {
+  background: #f1c40f;
+}
+
+.box6 {
+  background: #e67e22;
+}
+
+.box7 {
+  background: #e74c3c;
+}
+
+.box8 {
+  background: #bdc3c7;
+}
+
+.box9 {
+  background: #2ecc71;
+}
+
+.box10 {
+  background: #16a085;
+}
 
 
 /* We start writing our flexbox here. The above is just page setup */
 .flex-container {
-  border:10px solid goldenrod;
+  border: 10px solid goldenrod;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-evenly;
@@ -37,9 +68,9 @@
 }
 
 [class^="box"] {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .full {
@@ -63,13 +94,37 @@
 }
 
 /* Tablet Styles*/
+@media screen and (max-width: 1024px) {
 
+  .third,
+  .quarter {
+    width: calc(97%/2);
+  }
 
+  [class^="box"]:last-child {
+    /* width: 98%; */
+    flex-grow: 1;
+  }
 
+  .flex-container {
+    height: fit-content;
+  }
+}
 
 /* Mobile Styles*/
+@media screen and (max-width: 520px) {
+  [class^="box"] {
+    width: 97%;
+  }
+}
 
+/* for trion, alternatively use everything measurement wise in % rather than px. 
+px will give you one hell of a time translating it into mobile.
 
+Flex-grow is powerful. It helps you achieve the mobile layout you want without
+having to do the math for width.
 
+continue using calc(). It's a lifesaver and you wont have to do math.
 
-
+Similarly, continue using values like third, quarter, half, full to organize your
+columns effectively.
